@@ -2,6 +2,7 @@
 
 import { Product } from "@/types/product";
 import { useCart } from "@/context/CartContext";
+import Link from "next/link";
 
 type Props = {
   product: Product;
@@ -18,9 +19,11 @@ export default function ProductCard({ product }: Props) {
         {product.brand}
       </p>
 
-      <h3 className="text-xl mt-2 mb-2">
-        {product.name}
-      </h3>
+      <Link href={`/products/${product.id}`}>
+        <h3 className="text-xl mt-2 mb-2 hover:underline cursor-pointer">
+          {product.name}
+        </h3>
+      </Link>
 
       <p className="mb-4 font-medium">
         ${product.price}
