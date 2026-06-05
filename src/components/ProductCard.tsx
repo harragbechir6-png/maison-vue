@@ -11,20 +11,25 @@ export default function ProductCard({ product }: Props) {
   const { addToCart } = useCart();
 
   return (
-    <div
-      style={{
-        border: "1px solid #ddd",
-        padding: "1.5rem",
-        background: "white",
-      }}
-    >
-      <p>{product.brand}</p>
+    <div className="bg-white border p-6 hover:shadow-lg transition">
+      <div className="aspect-square bg-stone-100 mb-4"></div>
 
-      <h3>{product.name}</h3>
+      <p className="text-xs uppercase tracking-widest text-amber-700">
+        {product.brand}
+      </p>
 
-      <p>${product.price}</p>
+      <h3 className="text-xl mt-2 mb-2">
+        {product.name}
+      </h3>
 
-      <button onClick={() => addToCart(product)}>
+      <p className="mb-4 font-medium">
+        ${product.price}
+      </p>
+
+      <button
+        onClick={() => addToCart(product)}
+        className="w-full border py-3 hover:bg-black hover:text-white transition"
+      >
         Add To Cart
       </button>
     </div>
